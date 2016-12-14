@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Add Course</title>
+  </head>
+  <body>
+    <table>
+      <form action='/addcourse' method='POST'>
+        <tr>
+          <td>Name:</td>
+          <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+          <td>Fees:</td>
+          <td><input type="text" name="fees"></td>
+        </tr>
+        <tr>
+          <td>Duration:</td>
+          <td><input type="text" name="duration"></td>
+        </tr>
+        <tr>
+          <td>University:</td>
+          <td>
+            <select name="university">
+            <% names.forEach(function(eachName){ %>
+              <option value="<%= eachName %>"> <%= eachName %> </option>
+            <% })  %>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><button type="submit" value="submit">Submit</button></td>
+        </tr>
+      </form>
+    </table>
+  </body>
+</html>
