@@ -12,8 +12,8 @@
         <tr>
         <% data.forEach(function(row){ i+=1 %>
         <tr>
-            <td><%= i %></td> 
-            <td><a href="/univ/<%= row.university %>"><%= row.university %></a></td> 
+            <td><%= i %></td>
+            <td><%= row.university %></td> 
             <td><%= row.courses.toString() %></td>
         </tr>
         <% }) %>
