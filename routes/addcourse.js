@@ -23,6 +23,7 @@ router.route('/')
     })
 
     .post(function(req, res){
+      
       var newCourse = course({
         name: req.body.name,
         fees: req.body.fees,

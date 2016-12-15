@@ -8,6 +8,7 @@ app.set('view engine', 'ejs')
 app.use('/adduniv', require('./routes/adduniv'))
 app.use('/addcourse', require('./routes/addcourse'))
 app.use('/display', require('./routes/display'))
+app.use('/univ', require('./routes/univ'))
 
 app.listen(port, function(){
   console.log('server running on port '+port)

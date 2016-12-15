@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Display University Courses</title>
+  </head>
+  <body>
+  <% var i = 0 %>
+    <table border="1">
+        <tr>
+            <th>Sno.</th>
+            <th>University</th>
+            <th>Courses</th>
+        <tr>
+        <% data.forEach(function(row){ i+=1 %>
+        <tr>
+            <td><%= i %></td> 
+            <td><a href="/univ/<%= row.university %>"><%= row.university %></a></td> 
+            <td><%= row.courses.toString() %></td>
+        </tr>
+        <% }) %>
+    </table>
+  </body>
+</html>

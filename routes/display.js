@@ -1,27 +1,24 @@
 var express = require('express')
 var router = express.Router()
-var mongoclient = require('mongodb').MongoClient
+var universitycourse = require('./../models/universitycourse')
 
-mongoclient.connect('mongodb://localhost:27017/university', function(err, database){
-  if(err){
-    console.log(err);
-  }
-  db = database
-})
 
 router.get('/', function(req, res){
-  db.collection('mapping').aggregate([{
-    $group:{
-      _id: "$university",
-      univ: "$university",
-      courses:{ $addToSet: "$name"}
+  universitycourse.aggregate([
+    {
+      $group:{
+        _id: "$university_name",
+        courses:{ $addToSet: "$course_name"}
+      }
     },
-    $project:{
-      univ : 1,
-      courses : 1
-    }
+    {
+      $project:{
+        _id:0,
+        university: "$_id",
+        courses:1
+      }
   }], function(err, results){
-    res.json(results)
+    res.render('display.ejs', {data: results})
   })
 })
 
