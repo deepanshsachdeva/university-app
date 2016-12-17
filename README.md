@@ -15,10 +15,11 @@ The node application has 3 end points:
 ## Install
 * Clone the repository using `git clone https://github.com/deepanshsachdeva/university-app` or download zip from github.
 * Run `npm install` command in app root directory.
+* (Optional) Edit `models/db.js` to change default values.
 
 ## Run
 run `npm start` or `node index.js` in app root directory
 
 ## Notes
-* App assumes the default mongod port i.e. 27017 for database connection. Make changes accordingly in models files.
-* To run app in nodemon execute using command `npm dev`
+* Edit default values in `models/db.js` accordingly to connect database.
+* To run app in nodemon execute using command `npm run dev`
