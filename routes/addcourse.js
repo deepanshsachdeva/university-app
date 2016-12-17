@@ -1,8 +1,8 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-var course = require('../models/course')
-var university = require('../models/university')
-var universitycourse = require('../models/universitycourse')
+var course = require('./../models/course')
+var university = require('./../models/university')
+var universitycourse = require('./../models/universitycourse')
 var mongoose = require('mongoose')
 var router = express.Router()
 
@@ -23,12 +23,17 @@ router.route('/')
     })
 
     .post(function(req, res){
-      
+
       var newCourse = course({
         name: req.body.name,
         fees: req.body.fees,
         duration: req.body.duration
       })
+
+      if(req.body.university == undefined || req.body.university == ""){
+        res.redirect('/addcourse/#')
+        return
+      }
 
       universitycourse.find({course_name: req.body.name}, function(err, data){
         if(data.length > 0){

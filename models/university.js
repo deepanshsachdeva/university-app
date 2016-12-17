@@ -1,7 +1,5 @@
-var mongoose = require('mongoose')
+var mongoose = require('./db')
 var schema = mongoose.Schema
-
-mongoose.connect('mongodb://localhost:27017/univapp')
 
 var universitySchema = new schema({
   name: String,
